@@ -1,7 +1,7 @@
-CREATE DATABASE IF NOT EXISTS pixivtj
-USE pixivtj
+CREATE DATABASE IF NOT EXISTS pixivtj;
+USE pixivtj;
 CREATE TABLE IF NOT EXISTS User(
-    userId char(10) NOT NULL PRIMARY key,
+    userId VARCHAR(10) NOT NULL PRIMARY KEY,
     name VARCHAR(100),
     image VARCHAR(500),
     imageBig VARCHAR(500),
@@ -9,51 +9,50 @@ CREATE TABLE IF NOT EXISTS User(
     isFollowed BOOLEAN,
     isMypixiv BOOLEAN,
     isBlocking BOOLEAN,
-    background VARCHAR(500),
+    background VARCHAR(500)
 )
-
-CREATE TABLE IF NOT EXISTS illust(
-    illustid varchar(10),
-    illustTitle varchar(500),
-    illustComment varchar(5000),
-    id varchar(10),
-    title varchar(500),
-    description varchar(5000),
-    illustType int,
-    createDate datetime,
-    uploadDate datetime,
-    restrict int,
-    xRestrict int,
-    sl int,
-    url_min varchar(50),
-    url_thumb varchar(50),
-    url_samll varchar(50),
-    url_regular varchar(50),
-    url_original varchar(50),
-    alt varchar(500),
-    userId varchar(10),
-    userName varcahr(100),
-    userAccount varchar(100),
+CREATE TABLE IF NOT EXISTS Illust(
+    illustid VARCHAR(10) NOT NULL PRIMARY KEY,
+    illustTitle VARCHAR(500),
+    illustComment VARCHAR(5000),
+    id VARCHAR(10),
+    title VARCHAR(500),
+    description VARCHAR(5000),
+    illustType INT,
+    createDate DATETIME,
+    uploadDate DATETIME,
+    pixiv_restrict INT,
+    xRestrict INT,
+    sl INT,
+    url_min VARCHAR(50),
+    url_thumb VARCHAR(50),
+    url_samll VARCHAR(50),
+    url_regular VARCHAR(50),
+    url_original VARCHAR(50),
+    alt VARCHAR(500),
+    userId VARCHAR(10),
+    userName VARCHAR(100),
+    userAccount VARCHAR(100),
     likeData BOOLEAN,
-    width int,
-    height int,
-    pageCount int,
-    bookmarkCount int,
-    likeCount int,
-    commentCount int,
-    responseCount int,
-    viewCount int,
-    bookStyle int,
+    width INT,
+    height INT,
+    pageCount INT,
+    bookmarkCount INT,
+    likeCount INT,
+    commentCount INT,
+    responseCount INT,
+    viewCount INT,
+    bookStyle INT,
     isHowto BOOLEAN,
     isOriginal BOOLEAN,
-    ImageResponseCount int,
+    ImageResponseCount INT
 )
 
-CREATE TABLE IF NOT EXISTS tag(
-    tag varchar(100),
+CREATE TABLE IF NOT EXISTS Tag(
+    tag VARCHAR(100),
     locked BOOLEAN,
     deletable BOOLEAN,
-    userId varchar(10),
-    tanslation_name varchar(100),
-    userName varchar(100)
-)
+    userId VARCHAR(10),
+    tanslation_name VARCHAR(100),
+    userName VARCHAR(100)
+);
