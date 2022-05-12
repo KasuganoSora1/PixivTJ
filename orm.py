@@ -3,6 +3,8 @@ def write(JObject,tablename):
     into_str =""
     value_str=""
     for key in JObject.keys():
+        if(key=="urls"):
+            continue
         if(type(JObject[key])==str):
             into_str=into_str+key+","
             value_str=value_str+"'"+JObject[key]+"',"
