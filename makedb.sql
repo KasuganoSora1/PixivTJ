@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS User(
     isMypixiv BOOLEAN,
     isBlocking BOOLEAN,
     background VARCHAR(500)
-)
+);
 CREATE TABLE IF NOT EXISTS Illust(
     illustid VARCHAR(10) NOT NULL PRIMARY KEY,
     illustTitle VARCHAR(500),
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS Illust(
     isHowto BOOLEAN,
     isOriginal BOOLEAN,
     ImageResponseCount INT
-)
+);
 
 CREATE TABLE IF NOT EXISTS Tag(
     tag VARCHAR(100),
