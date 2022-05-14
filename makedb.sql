@@ -24,11 +24,11 @@ CREATE TABLE IF NOT EXISTS Illust(
     pixiv_restrict INT,
     xRestrict INT,
     sl INT,
-    url_min VARCHAR(50),
-    url_thumb VARCHAR(50),
-    url_samll VARCHAR(50),
-    url_regular VARCHAR(50),
-    url_original VARCHAR(50),
+    url_mini VARCHAR(500),
+    url_thumb VARCHAR(500),
+    url_small VARCHAR(500),
+    url_regular VARCHAR(500),
+    url_original VARCHAR(500),
     alt VARCHAR(500),
     userId VARCHAR(10),
     userName VARCHAR(100),
@@ -45,7 +45,18 @@ CREATE TABLE IF NOT EXISTS Illust(
     bookStyle INT,
     isHowto BOOLEAN,
     isOriginal BOOLEAN,
-    ImageResponseCount INT
+    imageResponseCount INT,
+    pollData VARCHAR(50),
+    seriesNavData VARCHAR(50),
+    descriptionBoothId VARCHAR(50),
+    descriptionYoutubeId VARCHAR(50),
+    comicPromotion VARCHAR(50),
+    fanboxPromotion VARCHAR(50),
+    isBookmarkable BOOLEAN,
+    contestData VARCHAR(50),
+    isUnlisted BOOLEAN,
+    request VARCHAR(50),
+    commentOff VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS Tag(
