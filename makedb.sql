@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS Illust(
 );
 
 CREATE TABLE IF NOT EXISTS Tag(
-    tag VARCHAR(100),
+    tag VARCHAR(100) NOT NULL PRIMARY KEY,
     locked BOOLEAN,
     deletable BOOLEAN,
     userId VARCHAR(10),
