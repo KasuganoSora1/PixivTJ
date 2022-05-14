@@ -27,6 +27,7 @@ for tag in jobject["illust"]["79019158"]["tags"]["tags"]:
 #orm.write(jobject["illust"]["79019158"]["tags"]["tags"][0],"tag")
 """
 
+"""
 jobject=json.load(open("./tag.json",encoding="utf-8"))
 for tag in jobject["illust"]["79019158"]["tags"]["tags"]:
     if (sql.isstrexist("tag","tag",tag["tag"])):
@@ -35,5 +36,5 @@ for tag in jobject["illust"]["79019158"]["tags"]["tags"]:
     else:
         print("已存在 不插入")
 #orm.write(jobject["illust"]["79019158"]["tags"]["tags"][0],"tag")
-
+"""
 
