@@ -9,7 +9,10 @@ CREATE TABLE IF NOT EXISTS User(
     isFollowed BOOLEAN,
     isMypixiv BOOLEAN,
     isBlocking BOOLEAN,
-    background VARCHAR(500)
+    background VARCHAR(500),
+    sketchLiveId VARCHAR(50),
+    partial INT,
+    acceptRequest BOOLEAN
 );
 CREATE TABLE IF NOT EXISTS Illust(
     illustid VARCHAR(10) NOT NULL PRIMARY KEY,
@@ -64,6 +67,6 @@ CREATE TABLE IF NOT EXISTS Tag(
     locked BOOLEAN,
     deletable BOOLEAN,
     userId VARCHAR(10),
-    tanslation_name VARCHAR(100),
+    translation_name VARCHAR(100),
     userName VARCHAR(100)
 );

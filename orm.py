@@ -10,6 +10,10 @@ def write(JObject,tablename):
                 into_str=into_str+"url_"+url_key+","
                 value_str=value_str+"'"+urls[url_key]+"',"
             continue
+        if(key=="translation"):
+            translation_name=JObject["translation"]["en"]
+            into_str=into_str+"translation_name,"
+            value_str=value_str+"'"+translation_name+"',"
         if(type(JObject[key])==str):
             into_str=into_str+key+","
             value_str=value_str+"'"+JObject[key]+"',"
