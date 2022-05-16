@@ -1,6 +1,8 @@
 import orm
 import json
 import sql
+import web
+import txt
 """
 jobject=json.load(open("./tag.json",encoding="utf-8"))
 jillust=jobject["illust"]["79019158"]
@@ -38,3 +40,9 @@ for tag in jobject["illust"]["79019158"]["tags"]["tags"]:
 #orm.write(jobject["illust"]["79019158"]["tags"]["tags"][0],"tag")
 """
 
+"""
+b=web.get_txt("https://www.pixiv.net/artworks/97695147")
+print(txt.is_exist_json(b))
+json=txt.get_json(b)
+pass
+"""

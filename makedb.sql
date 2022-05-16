@@ -70,3 +70,9 @@ CREATE TABLE IF NOT EXISTS Tag(
     translation_name VARCHAR(100),
     userName VARCHAR(100)
 );
+
+CREATE TABLE IF NOT EXISTS IllustTag(
+    tag VARCHAR(100),
+    illustid VARCHAR(100),
+    PRIMARY KEY(tag,illustid)
+);
