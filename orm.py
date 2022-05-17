@@ -23,4 +23,5 @@ def write(JObject,tablename):
     into_str=into_str.strip(",")
     value_str=value_str.strip(",")
     insert_str="insert into "+tablename+"("+into_str+") values("+value_str+")"
+    print(insert_str)
     sql.insert(insert_str)

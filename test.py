@@ -46,3 +46,15 @@ print(txt.is_exist_json(b))
 json=txt.get_json(b)
 pass
 """
+"""
+for i in range(1,2000):
+    t=web.get_txt("https://www.pixiv.net/artworks/"+str(i))
+    if(txt.is_exist_json(t)):
+        j=txt.get_json(t)
+        orm.write(j,"illusion")
+    else:
+        print(str(i)+"不存在")
+"""
+for i in range(1,1000):
+    t=web.get_txt("https://www.pixiv.net/artworks/"+str(i))
+    txt.html_page(t)

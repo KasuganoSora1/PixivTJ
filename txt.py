@@ -1,4 +1,6 @@
 import json
+import orm
+import sql
 def is_exist_json(txt):
     pre_search_start=txt.find("preload-data")
     if(pre_search_start==-1):
@@ -15,3 +17,22 @@ def get_json(txt):
         return json.loads(json_txt)
     except Exception as e:
         raise Exception("txt trans json error")
+
+def html_page(html_txt):
+    if(is_exist_json(html_txt)):
+        jobject=get_json(html_txt)
+        #---insert illust
+        for ikey in jobject["illust"]:
+            if(sql.isstrexist("illust","illustid",ikey)):
+                iobject=jobject["illust"][ikey]
+                orm.write(iobject,"illust")
+            for tobject in jobject["illust"][ikey]["tags"]["tags"]:
+                if(sql.isstrexist("tag","tag",tobject["tag"])):
+                    orm.write(tobject,"tag")
+                    if(sql.isstrexist2("illusttag","illustid",ikey,"tag",tobject["tag"])):
+                        illust_tag={
+                            "illustid":ikey,
+                            "tag":tobject["tag"]
+                        }
+                        orm.write(illust_tag,"illusttag")
+
