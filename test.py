@@ -1,4 +1,5 @@
-from concurrent.futures import ThreadPoolExecutor
+from asyncio import ALL_COMPLETED
+from concurrent.futures import ThreadPoolExecutor,wait,ALL_COMPLETED
 import orm
 import json
 import sql
@@ -62,6 +63,6 @@ for i in range(1,1000):
     txt.html_page(t)
 """
 pool=ThreadPoolExecutor(max_workers=10)
-for i in range(1,1000):
+for i in range(1,100000000):
     print("put "+str(i))
     pool.submit(web.write_from_page_id,str(i))

@@ -31,9 +31,9 @@ def isstrexist(table_name,unique_id,id):
         rs=cursor.fetchall()
         length=len(rs)
         if(length==0):
-            return True #存在
+            return True #不存在
         else:
-            return False #不存在
+            return False #存在
     except Exception as e:
         raise Exception("sql isexist error")
     finally:
@@ -53,9 +53,9 @@ def isstrexist2(table_name,unique_id1,id1,unique_id2,id2):
         rs=cursor.fetchall()
         length=len(rs)
         if(length==0):
-            return True #存在
+            return True #不存在
         else:
-            return False #不存在
+            return False #存在
     except Exception as e:
         raise Exception("sql isexist error")
     finally:

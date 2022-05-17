@@ -9,11 +9,14 @@ def get_txt(this_url):
         "http":pixivTJ_config.get("proxy","http"),
         "https":pixivTJ_config.get("proxy","http")
         })
-    res_txt=res.txt
-    res.clsoe()
+    res_txt=res.text
+    res.close()
     return res_txt
 
 def write_from_page_id(id):
-    page_txt=get_txt("https://www.pixiv.net/artworks/"+id)
-    txt.html_page(page_txt)
+    try:
+        page_txt=get_txt("https://www.pixiv.net/artworks/"+id)
+        txt.write_from_html_txt(page_txt)
+    except Exception as e:
+        print("error"+str(e))
     
