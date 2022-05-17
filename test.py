@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor
 import orm
 import json
 import sql
@@ -55,6 +56,12 @@ for i in range(1,2000):
     else:
         print(str(i)+"不存在")
 """
+"""
 for i in range(1,1000):
     t=web.get_txt("https://www.pixiv.net/artworks/"+str(i))
     txt.html_page(t)
+"""
+pool=ThreadPoolExecutor(max_workers=10)
+for i in range(1,1000):
+    print("put "+str(i))
+    pool.submit(web.write_from_page_id,str(i))

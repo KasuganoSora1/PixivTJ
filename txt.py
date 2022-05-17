@@ -18,7 +18,7 @@ def get_json(txt):
     except Exception as e:
         raise Exception("txt trans json error")
 
-def html_page(html_txt):
+def write_from_html_txt(html_txt):
     if(is_exist_json(html_txt)):
         jobject=get_json(html_txt)
         #---insert illust
