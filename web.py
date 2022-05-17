@@ -7,4 +7,6 @@ def get_txt(this_url):
         "http":pixivTJ_config.get("proxy","http"),
         "https":pixivTJ_config.get("proxy","http")
         })
-    return res.text
+    res_txt=res.txt
+    res.clsoe()
+    return res_txt
