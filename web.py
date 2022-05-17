@@ -16,7 +16,7 @@ def get_txt(this_url):
 def write_from_page_id(id):
     try:
         page_txt=get_txt("https://www.pixiv.net/artworks/"+id)
-        txt.write_from_html_txt(page_txt)
+        txt.write_from_html_txt(page_txt,id)
     except Exception as e:
         print("error"+str(e))
     

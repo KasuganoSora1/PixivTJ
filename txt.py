@@ -18,7 +18,7 @@ def get_json(txt):
     except Exception as e:
         raise Exception("txt trans json error")
 
-def write_from_html_txt(html_txt):
+def write_from_html_txt(html_txt,id):
     if(is_exist_json(html_txt)):
         jobject=get_json(html_txt)
         #---insert illust
@@ -27,12 +27,12 @@ def write_from_html_txt(html_txt):
                 iobject=jobject["illust"][ikey]
                 orm.write(iobject,"illust")
             else:
-                print("该作品已经存在于数据库中"+ikey)
+                print("该作品已经存在于数据库中:"+ikey)
             for tobject in jobject["illust"][ikey]["tags"]["tags"]:
                 if(sql.isstrexist("tag","tag",tobject["tag"])):
                     orm.write(tobject,"tag")
                 else:
-                    print("该tag已经存在于数据库中"+ikey)
+                    print("该tag已经存在于数据库中:"+ikey)
                 if(sql.isstrexist2("illusttag","illustid",ikey,"tag",tobject["tag"])):
                     illust_tag={
                         "illustid":ikey,
@@ -40,7 +40,7 @@ def write_from_html_txt(html_txt):
                     }
                     orm.write(illust_tag,"illusttag")
                 else:
-                    print("该illust-tag关系已经存在于数据库中"+ikey)
+                    print("该illust-tag关系已经存在于数据库中:"+ikey)
     else:
-        print("该ID不存在作品")
+        print("该ID不存在作品:"+id)
 
