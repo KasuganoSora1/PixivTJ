@@ -2,6 +2,7 @@ import requests
 from config import pixivTJ_config
 import orm
 import txt
+import sql
 
 def get_txt(this_url):
     #p=pixivTJ_config.get("web","proxy")
@@ -18,5 +19,10 @@ def write_from_page_id(id):
         page_txt=get_txt("https://www.pixiv.net/artworks/"+id)
         txt.write_from_html_txt(page_txt,id)
     except Exception as e:
-        print("error"+str(e))
+        if(sql.isstrexist("user","userId",id)):
+            jo={
+                "illustId":id,
+                "reason":"ERROR"
+            }
+            orm.write(jo,"ErrorIllust")
     
