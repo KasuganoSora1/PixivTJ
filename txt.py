@@ -25,19 +25,19 @@ def write_from_html_txt(html_txt,id):
         for ikey in jobject["illust"]:
             if(sql.isstrexist("illust","illustid",ikey)):
                 iobject=jobject["illust"][ikey]
-                orm.write(iobject,"illust")
+                orm.write(iobject,"Illust")
             for tobject in jobject["illust"][ikey]["tags"]["tags"]:
                 if(sql.isstrexist("tag","tag",tobject["tag"])):
-                    orm.write(tobject,"tag")
+                    orm.write(tobject,"Tag")
                 if(sql.isstrexist2("illusttag","illustid",ikey,"tag",tobject["tag"])):
                     illust_tag={
                         "illustid":ikey,
                         "tag":tobject["tag"]
                     }
-                    orm.write(illust_tag,"illusttag")
+                    orm.write(illust_tag,"IllustTag")
         for ukey in jobject["user"]:
             if(sql.isstrexist("user","userId",ukey)):
-                orm.write(jobject["user"][ukey],"user")
+                orm.write(jobject["user"][ukey],"User")
     else:
         if(sql.isstrexist("ErrorIllust","illustId",id)):
             jo={

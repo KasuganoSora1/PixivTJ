@@ -19,7 +19,7 @@ def write_from_page_id(id):
         page_txt=get_txt("https://www.pixiv.net/artworks/"+id)
         txt.write_from_html_txt(page_txt,id)
     except Exception as e:
-        if(sql.isstrexist("user","userId",id)):
+        if(sql.isstrexist2("ErrorIllust","illustid",id,"reason","ERROR")):
             jo={
                 "illustId":id,
                 "reason":"ERROR"
