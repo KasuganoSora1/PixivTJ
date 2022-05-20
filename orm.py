@@ -11,7 +11,7 @@ def write(JObject,tablename):
             #value_str=value_str+str(JObject[key])+","
             t=datetime.datetime.strptime(JObject[key],"%Y-%m-%dT%H:%M:%S+00:00")
             t_str=t.strftime("%Y-%m-%d %H:%M:%S")
-            value_str=value_str+t_str+","
+            value_str=value_str+"'"+t_str+"',"
             continue
         if(key=="restrict" and JObject[key]!=None):
             into_str=into_str+"pixiv_restrict,"
