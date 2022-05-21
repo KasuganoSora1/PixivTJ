@@ -13,7 +13,7 @@ def insert(sql_str):
         cursor.execute(sql_str)
         conn.commit()
     except Exception as e:
-        raise pymysql.Error
+        raise pymysql.Error(str(e))
     finally:
         cursor.close()
         conn.close()
@@ -35,7 +35,7 @@ def isstrexist(table_name,unique_id,id):
         else:
             return False #存在
     except Exception as e:
-        raise pymysql.Error
+        raise pymysql.Error(str(e))
     finally:
         cursor.close()
         conn.close()
@@ -57,7 +57,7 @@ def isstrexist2(table_name,unique_id1,id1,unique_id2,id2):
         else:
             return False #存在
     except Exception as e:
-        raise pymysql.Error
+        raise pymysql.Error(str(e))
     finally:
         cursor.close()
         conn.close()
