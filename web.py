@@ -1,3 +1,4 @@
+import pymysql
 import requests
 from config import pixivTJ_config
 import orm
@@ -18,18 +19,29 @@ def write_from_page_id(id):
     try:
         page_txt=get_txt("https://www.pixiv.net/artworks/"+id)
         txt.write_from_html_txt(page_txt,id)
-    except requests.Timeout as ct:
-        if(sql.isstrexist("ErrorIllust","illustid",id)):
+    except pymysql.Error as sql_err:
+         if(sql.isstrexist("ErrorIllust","illustid",id)):
             jo={
                 "illustId":id,
-                "reason":"TIMEOUTERROR"
+                "reason":"INSERTERROR",
+                "detail":str(sql_err)
             }
             orm.write(jo,"ErrorIllust")
-    except Exception as e:
+       
+    except requests.Timeout as timeout_err:
         if(sql.isstrexist("ErrorIllust","illustid",id)):
             jo={
                 "illustId":id,
-                "reason":"UNKNOWNERROR"
+                "reason":"TIMEOUTERROR",
+                "detail":str(timeout_err)
+            }
+            orm.write(jo,"ErrorIllust")
+    except Exception as err:
+        if(sql.isstrexist("ErrorIllust","illustid",id)):
+            jo={
+                "illustId":id,
+                "reason":"UNKNOWNERROR",
+                "detail":str(err)
             }
             orm.write(jo,"ErrorIllust")
     

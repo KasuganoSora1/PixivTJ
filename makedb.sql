@@ -79,5 +79,6 @@ CREATE TABLE IF NOT EXISTS IllustTag(
 
 CREATE TABLE IF NOT EXISTS ErrorIllust(
     illustId VARCHAR(10) NOT NULL PRIMARY KEY,
-    reason VARCHAR(50)
+    reason VARCHAR(50),
+    detail VARCHAR(5000)
 )
