@@ -13,7 +13,7 @@ def insert(sql_str):
         cursor.execute(sql_str)
         conn.commit()
     except Exception as e:
-        raise Exception("sql insert error"+str(e))
+        raise Exception("sql insert error")
     finally:
         cursor.close()
         conn.close()

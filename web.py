@@ -18,11 +18,18 @@ def write_from_page_id(id):
     try:
         page_txt=get_txt("https://www.pixiv.net/artworks/"+id)
         txt.write_from_html_txt(page_txt,id)
-    except Exception as e:
-        if(sql.isstrexist2("ErrorIllust","illustid",id,"reason","ERROR")):
+    except requests.Timeout as ct:
+        if(sql.isstrexist("ErrorIllust","illustid",id)):
             jo={
                 "illustId":id,
-                "reason":"ERROR"
+                "reason":"TIMEOUTERROR"
+            }
+            orm.write(jo,"ErrorIllust")
+    except Exception as e:
+        if(sql.isstrexist("ErrorIllust","illustid",id)):
+            jo={
+                "illustId":id,
+                "reason":"UNKNOWNERROR"
             }
             orm.write(jo,"ErrorIllust")
     
