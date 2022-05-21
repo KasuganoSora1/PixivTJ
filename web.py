@@ -6,11 +6,15 @@ import txt
 import sql
 
 def get_txt(this_url):
+    res=None
     #p=pixivTJ_config.get("web","proxy")
-    res=requests.get(url=this_url,proxies={
-        "http":pixivTJ_config.get("proxy","http"),
-        "https":pixivTJ_config.get("proxy","http")
-        })
+    if(pixivTJ_config.get("porxy","isuse")=="True"):
+        res=requests.get(url=this_url,proxies={
+            "http":pixivTJ_config.get("proxy","http"),
+            "https":pixivTJ_config.get("proxy","http")
+            })
+    else:
+        res=requests.get(url=this_url)
     res_txt=res.text
     res.close()
     return res_txt
