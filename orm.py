@@ -1,5 +1,7 @@
 import datetime
 from multiprocessing.dummy import JoinableQueue
+from re import U
+from turtle import up
 import sql
 import time
 def write(JObject,tablename):
@@ -37,4 +39,19 @@ def write(JObject,tablename):
     into_str=into_str.strip(",")
     value_str=value_str.strip(",")
     insert_str="insert into "+tablename+"("+into_str+") values("+value_str+")"
+    sql.insert(insert_str)
+
+def update(JObject,tablename,unique_key,unique_value):
+    update_str =""
+    for key in JObject.keys():
+        if(type(JObject[key])==str):
+            update_str=update_str+"set "+key+"='"+JObject[key]+"',"
+        elif(type(JObject[key])==bool or type(JObject[key])==int):
+            update_str=update_str+"set "+key+"="+str(JObject[key])+","
+    update_str=update_str.strip(",")
+    insert_str=""
+    if(type(unique_value)==str):
+        insert_str="update "+tablename+"set "+update_str+" where "+unique_key+"='"+unique_value+"'"
+    else:
+        insert_str="update "+tablename+"set "+update_str+" where "+unique_key+"="+str(unique_value)
     sql.insert(insert_str)
