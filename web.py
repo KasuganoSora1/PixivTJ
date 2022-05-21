@@ -12,9 +12,9 @@ def get_txt(this_url):
         res=requests.get(url=this_url,proxies={
             "http":pixivTJ_config.get("proxy","http"),
             "https":pixivTJ_config.get("proxy","http")
-            })
+            },timeout=10)
     else:
-        res=requests.get(url=this_url)
+        res=requests.get(url=this_url,timeout=10)
     res_txt=res.text
     res.close()
     return res_txt
