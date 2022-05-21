@@ -8,7 +8,7 @@ import sql
 def get_txt(this_url):
     res=None
     #p=pixivTJ_config.get("web","proxy")
-    if(pixivTJ_config.get("porxy","isuse")=="True"):
+    if(pixivTJ_config.get("proxy","isuse")=="True"):
         res=requests.get(url=this_url,proxies={
             "http":pixivTJ_config.get("proxy","http"),
             "https":pixivTJ_config.get("proxy","http")

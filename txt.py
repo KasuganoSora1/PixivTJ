@@ -26,6 +26,13 @@ def write_from_html_txt(html_txt,id):
             if(sql.isstrexist("Illust","illustid",ikey)):
                 iobject=jobject["illust"][ikey]
                 orm.write(iobject,"Illust")
+            else:
+                iobject=jobject["illust"][ikey]
+                update_object={
+                    "likeCount":iobject["likeCount"],
+                    "bookmarkCount":iobject["bookmarkCount"]
+                }
+                orm.update(update_object,"Illust","illustId",ikey)
             for tobject in jobject["illust"][ikey]["tags"]["tags"]:
                 if(sql.isstrexist("Tag","tag",tobject["tag"])):
                     orm.write(tobject,"Tag")
