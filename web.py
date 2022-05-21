@@ -27,7 +27,7 @@ def write_from_page_id(id):
          if(sql.isstrexist("ErrorIllust","illustid",id)):
             jo={
                 "illustId":id,
-                "reason":"INSERTERROR",
+                "reason":"SQLERROR",
                 "detail":str(sql_err)
             }
             orm.write(jo,"ErrorIllust")

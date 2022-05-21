@@ -1,7 +1,4 @@
 import datetime
-from multiprocessing.dummy import JoinableQueue
-from re import U
-from turtle import up
 import sql
 import time
 def write(JObject,tablename):
