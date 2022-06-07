@@ -82,3 +82,5 @@ CREATE TABLE IF NOT EXISTS ErrorIllust(
     reason VARCHAR(50),
     detail VARCHAR(5000)
 )
+
+ALTER TABLE Illust ADD INDEX(createDate);
