@@ -84,3 +84,4 @@ CREATE TABLE IF NOT EXISTS ErrorIllust(
 )
 
 ALTER TABLE Illust ADD INDEX(createDate);
+ALTER TABLE IllustTag Add INDEX(tag);
