@@ -85,3 +85,5 @@ CREATE TABLE IF NOT EXISTS ErrorIllust(
 
 ALTER TABLE Illust ADD INDEX(createDate);
 ALTER TABLE IllustTag Add INDEX(tag);
+ALTER TABLE IllustTag Add INDEX(illustid);
+ALTER TABLE ErrorIllust ADD INDEX(reason);
